@@ -1,5 +1,6 @@
 package userinterface;
 
+import java.net.URI;
 import java.net.URL;
 
 import javax.xml.namespace.QName;
@@ -13,6 +14,7 @@ public class Client {
 	static QName qname = null;
 	static Service service = null;
 	static Health health =null;
+	static URI  uri= null;
 	
 
 	public static void main(String[] args) throws Exception {
@@ -20,6 +22,7 @@ public class Client {
 		setQname(new QName("http://sw.soap.processcentricservices.systemlogic", "Health"));
 		setService(Service.create(url, qname));
 		setHealth(getService().getPort(Health.class));
+		//setUri(UriBuilder.fromUri("http://10.218.221.138:5700/finalprojectrest/").build());
 		
 		
 
@@ -62,6 +65,14 @@ public class Client {
 
 	public static void setHealth(Health health) {
 		Client.health = health;
+	}
+
+	public static URI getUri() {
+		return uri;
+	}
+
+	public static void setUri(URI uri) {
+		Client.uri = uri;
 	}
 
 

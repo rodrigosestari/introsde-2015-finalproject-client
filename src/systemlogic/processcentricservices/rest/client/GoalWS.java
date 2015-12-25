@@ -41,6 +41,14 @@ public class GoalWS {
 		return UriBuilder.fromUri("http://10.218.221.138:5700/finalprojectrest/").build();
 	}
 
+	
+	
+	public static void getGoal(int person){
+		ClientConfig clientConfig = new ClientConfig();
+		Client client = ClientBuilder.newClient(clientConfig);
+		WebTarget service = client.target(getBaseURI()).path("person");
+	}
+	
 	public static NodeList getNodes(String source, String query) throws Exception {
 		NodeList nl = null;
 		try {
@@ -63,53 +71,10 @@ public class GoalWS {
 		return nl;
 	}
 
-	private static void write(String line) {
-		try {
-			System.out.println(line);
-			writer.append(line + " \n");
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
 
-	public static void main(String[] args) throws Exception {
 
-		writer = new FileWriter("client-server-xml.log");
-		try {
-			try {
-				System.out.println("START client XML");
-				write("URL BASE: https://rodrigo-sestari.herokuapp.com/assignment2");
-				write(" \n -------------");
-				request1();
-				write(" \n -------------");
-				request2();
-				write(" \n -------------");
-				request3();
-				write(" \n -------------");
-				request4();
-				write(" \n -------------");
-				request5();
-				write(" \n -------------");
-				request6();
-				write(" \n -------------");
-				request7();
-				write(" \n -------------");
-				request8();
-				write(" \n -------------");
-				request9();
-				write(" \n END");
-				System.out.println("END client XML");
 
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		} finally {
-			writer.flush();
-			writer.close();
-		}
-
-	}
-
+	
 	/**
 	 * Request #1: GET /person should list all the people
 	 *  (see above Person model to know what data to return here) in your database 
@@ -121,9 +86,7 @@ public class GoalWS {
 	public static void request1() throws IOException, JSONException, Exception {
 
 
-		ClientConfig clientConfig = new ClientConfig();
-		Client client = ClientBuilder.newClient(clientConfig);
-		WebTarget service = client.target(getBaseURI()).path("person");
+	
 
 		write("\n \n Request #1: GET ["+service.getUri().getPath()+"] Accept: APPLICATION_XML Content-type: APPLICATION_XML");
 
