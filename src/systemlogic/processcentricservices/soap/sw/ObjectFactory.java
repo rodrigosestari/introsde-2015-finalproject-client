@@ -51,22 +51,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link People }
-     * 
-     */
-    public People createPeople() {
-        return new People();
-    }
-
-    /**
-     * Create an instance of {@link MeasureHistory }
-     * 
-     */
-    public MeasureHistory createMeasureHistory() {
-        return new MeasureHistory();
-    }
-
-    /**
      * Create an instance of {@link systemlogic.processcentricservices.soap.sw.Person }
      * 
      */
@@ -99,6 +83,38 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link ReadPersonListResponse }
+     * 
+     */
+    public ReadPersonListResponse createReadPersonListResponse() {
+        return new ReadPersonListResponse();
+    }
+
+    /**
+     * Create an instance of {@link ReadPersonListResponse.People }
+     * 
+     */
+    public ReadPersonListResponse.People createReadPersonListResponsePeople() {
+        return new ReadPersonListResponse.People();
+    }
+
+    /**
+     * Create an instance of {@link ReadPersonListResponse.People.Person }
+     * 
+     */
+    public ReadPersonListResponse.People.Person createReadPersonListResponsePeoplePerson() {
+        return new ReadPersonListResponse.People.Person();
+    }
+
+    /**
+     * Create an instance of {@link ReadPersonListResponse.People.Person.HealthProfile }
+     * 
+     */
+    public ReadPersonListResponse.People.Person.HealthProfile createReadPersonListResponsePeoplePersonHealthProfile() {
+        return new ReadPersonListResponse.People.Person.HealthProfile();
+    }
+
+    /**
      * Create an instance of {@link ReadPersonHistoryResponse }
      * 
      */
@@ -115,19 +131,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link People.Person }
+     * Create an instance of {@link SavePersonMeasureResponse }
      * 
      */
-    public People.Person createPeoplePerson() {
-        return new People.Person();
+    public SavePersonMeasureResponse createSavePersonMeasureResponse() {
+        return new SavePersonMeasureResponse();
     }
 
     /**
-     * Create an instance of {@link People.Person.HealthProfile }
+     * Create an instance of {@link SavePersonMeasureResponse.MeasureHistory }
      * 
      */
-    public People.Person.HealthProfile createPeoplePersonHealthProfile() {
-        return new People.Person.HealthProfile();
+    public SavePersonMeasureResponse.MeasureHistory createSavePersonMeasureResponseMeasureHistory() {
+        return new SavePersonMeasureResponse.MeasureHistory();
     }
 
     /**
@@ -163,14 +179,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link SavePersonMeasureResponse }
-     * 
-     */
-    public SavePersonMeasureResponse createSavePersonMeasureResponse() {
-        return new SavePersonMeasureResponse();
-    }
-
-    /**
      * Create an instance of {@link CreatePerson }
      * 
      */
@@ -179,27 +187,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link MeasureTypes }
-     * 
-     */
-    public MeasureTypes createMeasureTypes() {
-        return new MeasureTypes();
-    }
-
-    /**
      * Create an instance of {@link ReadMeasureTypes }
      * 
      */
     public ReadMeasureTypes createReadMeasureTypes() {
         return new ReadMeasureTypes();
-    }
-
-    /**
-     * Create an instance of {@link ReadPersonListResponse }
-     * 
-     */
-    public ReadPersonListResponse createReadPersonListResponse() {
-        return new ReadPersonListResponse();
     }
 
     /**
@@ -224,14 +216,6 @@ public class ObjectFactory {
      */
     public ReadPersonHistory createReadPersonHistory() {
         return new ReadPersonHistory();
-    }
-
-    /**
-     * Create an instance of {@link MeasureHistory.Measure }
-     * 
-     */
-    public MeasureHistory.Measure createMeasureHistoryMeasure() {
-        return new MeasureHistory.Measure();
     }
 
     /**
@@ -291,6 +275,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link ReadPersonListResponse.People.Person.HealthProfile.MeasureType }
+     * 
+     */
+    public ReadPersonListResponse.People.Person.HealthProfile.MeasureType createReadPersonListResponsePeoplePersonHealthProfileMeasureType() {
+        return new ReadPersonListResponse.People.Person.HealthProfile.MeasureType();
+    }
+
+    /**
      * Create an instance of {@link ReadPersonHistoryResponse.MeasureProfile.Measure }
      * 
      */
@@ -299,11 +291,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link People.Person.HealthProfile.MeasureType }
+     * Create an instance of {@link SavePersonMeasureResponse.MeasureHistory.Measure }
      * 
      */
-    public People.Person.HealthProfile.MeasureType createPeoplePersonHealthProfileMeasureType() {
-        return new People.Person.HealthProfile.MeasureType();
+    public SavePersonMeasureResponse.MeasureHistory.Measure createSavePersonMeasureResponseMeasureHistoryMeasure() {
+        return new SavePersonMeasureResponse.MeasureHistory.Measure();
     }
 
     /**

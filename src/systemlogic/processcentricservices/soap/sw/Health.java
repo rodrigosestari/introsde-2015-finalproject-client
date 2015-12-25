@@ -42,14 +42,14 @@ public interface Health {
     /**
      * 
      * @return
-     *     returns systemlogic.processcentricservices.soap.sw.People
+     *     returns systemlogic.processcentricservices.soap.sw.ReadPersonListResponse.People
      */
     @WebMethod
-    @WebResult(name = "people", targetNamespace = "http://sw.soap.processcentricservices.systemlogic/")
+    @WebResult(name = "people", targetNamespace = "")
     @RequestWrapper(localName = "readPersonList", targetNamespace = "http://sw.soap.processcentricservices.systemlogic/", className = "systemlogic.processcentricservices.soap.sw.ReadPersonList")
     @ResponseWrapper(localName = "readPersonListResponse", targetNamespace = "http://sw.soap.processcentricservices.systemlogic/", className = "systemlogic.processcentricservices.soap.sw.ReadPersonListResponse")
     @Action(input = "http://sw.soap.processcentricservices.systemlogic/Health/readPersonListRequest", output = "http://sw.soap.processcentricservices.systemlogic/Health/readPersonListResponse")
-    public People readPersonList();
+    public systemlogic.processcentricservices.soap.sw.ReadPersonListResponse.People readPersonList();
 
     /**
      * 
@@ -154,14 +154,14 @@ public interface Health {
      * @param personId
      * @param value
      * @return
-     *     returns systemlogic.processcentricservices.soap.sw.MeasureHistory
+     *     returns systemlogic.processcentricservices.soap.sw.SavePersonMeasureResponse.MeasureHistory
      */
     @WebMethod
-    @WebResult(name = "measureHistory", targetNamespace = "http://sw.soap.processcentricservices.systemlogic/")
+    @WebResult(name = "measureHistory", targetNamespace = "")
     @RequestWrapper(localName = "savePersonMeasure", targetNamespace = "http://sw.soap.processcentricservices.systemlogic/", className = "systemlogic.processcentricservices.soap.sw.SavePersonMeasure")
     @ResponseWrapper(localName = "savePersonMeasureResponse", targetNamespace = "http://sw.soap.processcentricservices.systemlogic/", className = "systemlogic.processcentricservices.soap.sw.SavePersonMeasureResponse")
     @Action(input = "http://sw.soap.processcentricservices.systemlogic/Health/savePersonMeasureRequest", output = "http://sw.soap.processcentricservices.systemlogic/Health/savePersonMeasureResponse")
-    public MeasureHistory savePersonMeasure(
+    public systemlogic.processcentricservices.soap.sw.SavePersonMeasureResponse.MeasureHistory savePersonMeasure(
         @WebParam(name = "personId", targetNamespace = "")
         Long personId,
         @WebParam(name = "measure", targetNamespace = "")
