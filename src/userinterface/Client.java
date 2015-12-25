@@ -3,6 +3,7 @@ package userinterface;
 import java.net.URI;
 import java.net.URL;
 
+import javax.ws.rs.core.UriBuilder;
 import javax.xml.namespace.QName;
 import javax.xml.ws.Service;
 
@@ -22,7 +23,7 @@ public class Client {
 		setQname(new QName("http://sw.soap.processcentricservices.systemlogic", "Health"));
 		setService(Service.create(url, qname));
 		setHealth(getService().getPort(Health.class));
-		//setUri(UriBuilder.fromUri("http://10.218.221.138:5700/finalprojectrest/").build());
+		setUri(UriBuilder.fromUri("http://rodrigo-sestari-final-rest.herokuapp.com/finalprojectrest/").build());
 		
 		
 
