@@ -33,17 +33,17 @@ import javax.xml.bind.annotation.XmlType;
 public class ReadPersonResponse {
 
     @XmlElement(namespace = "http://sw.soap.processcentricservices.systemlogic/")
-    protected Person person;
+    protected PersonDto person;
 
     /**
      * Gets the value of the person property.
      * 
      * @return
      *     possible object is
-     *     {@link Person }
+     *     {@link PersonDto }
      *     
      */
-    public Person getPerson() {
+    public PersonDto getPerson() {
         return person;
     }
 
@@ -52,10 +52,10 @@ public class ReadPersonResponse {
      * 
      * @param value
      *     allowed object is
-     *     {@link Person }
+     *     {@link PersonDto }
      *     
      */
-    public void setPerson(Person value) {
+    public void setPerson(PersonDto value) {
         this.person = value;
     }
 

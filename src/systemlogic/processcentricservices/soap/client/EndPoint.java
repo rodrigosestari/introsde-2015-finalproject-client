@@ -2,13 +2,16 @@ package systemlogic.processcentricservices.soap.client;
 
 import java.util.ArrayList;
 
-import systemlogic.processcentricservices.soap.sw.Person;
+import systemlogic.processcentricservices.soap.sw.MeasureHistoryView;
+import systemlogic.processcentricservices.soap.sw.MeasureTypesView;
+import systemlogic.processcentricservices.soap.sw.PeopleView;
+import systemlogic.processcentricservices.soap.sw.PersonDto;
 import userinterface.Client;
 
 public class EndPoint {
 
-	public static Person peopleExist(Long idPerson) {
-		Person person = null;
+	public static PersonDto peopleExist(Long idPerson) {
+		PersonDto person = null;
 		try {
 			person = Client.getHealth().readPerson(idPerson);
 		} catch (Exception e) {
@@ -21,14 +24,13 @@ public class EndPoint {
 
 	public static ArrayList<Integer> idPeople() {
 		ArrayList<Integer> result = null;
-		systemlogic.processcentricservices.soap.sw.ReadPersonListResponse.People people = null;
+		PeopleView people = null;
 
 		try {
-			people = Client.getHealth().readPersonList();
+			people = Client.getHealth().getPeople();
 			if (null != people) {
 				result = new ArrayList<>();
-				for (systemlogic.processcentricservices.soap.sw.ReadPersonListResponse.People.Person p : people
-						.getPerson()) {
+				for (PeopleView.Person p : people.getPerson()) {
 					result.add(p.getIdPerson());
 				}
 			}
@@ -40,9 +42,9 @@ public class EndPoint {
 		return result;
 	}
 
-	public static systemlogic.processcentricservices.soap.sw.ReadPersonHistoryResponse.MeasureProfile personHistory(
+	public static MeasureHistoryView personHistory(
 			Long idPerson, String type) {
-		systemlogic.processcentricservices.soap.sw.ReadPersonHistoryResponse.MeasureProfile history = null;
+		MeasureHistoryView history = null;
 		try {
 			history = Client.getHealth().readPersonHistory(idPerson, type);
 		} catch (Exception e) {
@@ -54,7 +56,7 @@ public class EndPoint {
 	}
 	
 	public static ArrayList<String> measureType(){		
-		 systemlogic.processcentricservices.soap.sw.ReadMeasureTypesResponse.MeasureProfile me = null;
+		MeasureTypesView me = null;
 		try {
 			me = Client.getHealth().readMeasureTypes();
 			if (null != me){
@@ -68,7 +70,7 @@ public class EndPoint {
 	}
 	
 	public static boolean saveMeasure( Long personId,String measure, Float value,String data){		
-		systemlogic.processcentricservices.soap.sw.SavePersonMeasureResponse.MeasureHistory me = null;
+		MeasureHistoryView me = null;
 		try {
 			me = Client.getHealth().savePersonMeasure(personId, measure, value, data);
 			if (null != me){

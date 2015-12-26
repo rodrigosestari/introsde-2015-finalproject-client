@@ -10,7 +10,8 @@ import javax.xml.ws.Service;
 
 import systemlogic.processcentricservices.soap.client.EndPoint;
 import systemlogic.processcentricservices.soap.sw.Health;
-import systemlogic.processcentricservices.soap.sw.Person;
+import systemlogic.processcentricservices.soap.sw.MeasureHistoryView;
+import systemlogic.processcentricservices.soap.sw.PersonDto;
 
 public class Client {
 
@@ -40,22 +41,22 @@ public class Client {
 				switch (type) {
 
 				case "1": {
-					System.out.println(EndPoint.idPeople()); 
+					System.out.println(EndPoint.idPeople());
 				}
 					break;
 				case "2": {
 					System.out.print("Person id: ");
 					type = scanner();
 					try {
-						Person p =  EndPoint.peopleExist(Long.parseLong(type));
-						if (null != p){
+						PersonDto p = EndPoint.peopleExist(Long.parseLong(type));
+						if (null != p) {
 							idPerson = p.getIdPerson();
 						}
 					} catch (Exception e) {
 						idPerson = null;
 						input = "exit";
 					}
-				
+
 				}
 					break;
 				case "3": {
@@ -74,9 +75,24 @@ public class Client {
 				switch (type) {
 
 				case "1": {
+					System.out.print("measure: ");
+					String pmeasure = scanner();
+					try {
+						MeasureHistoryView mv = EndPoint.personHistory(Long.valueOf(idPerson), pmeasure);
+						if (null != mv) {
+							for (MeasureHistoryView.Measure m : mv.getMeasure()) {
+								System.out.println(m.toString());
+							}
+
+						}
+					} catch (Exception e) {
+
+					}
+
 				}
 					break;
 				case "2": {
+					System.out.println(EndPoint.measureType());
 				}
 					break;
 				case "3": {

@@ -61,7 +61,7 @@ import javax.xml.bind.annotation.XmlType;
     "healthProfile"
 })
 @XmlRootElement(name = "person")
-public class Person {
+public class PersonDto {
 
     protected Integer idPerson;
     @XmlElement(required = true)
@@ -69,7 +69,7 @@ public class Person {
     @XmlElement(required = true)
     protected String lastname;
     @XmlElement(nillable = true)
-    protected List<Person.HealthProfile> healthProfile;
+    protected List<PersonDto.HealthProfile> healthProfile;
 
     /**
      * Gets the value of the idPerson property.
@@ -161,13 +161,13 @@ public class Person {
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link Person.HealthProfile }
+     * {@link PersonDto.HealthProfile }
      * 
      * 
      */
-    public List<Person.HealthProfile> getHealthProfile() {
+    public List<PersonDto.HealthProfile> getHealthProfile() {
         if (healthProfile == null) {
-            healthProfile = new ArrayList<Person.HealthProfile>();
+            healthProfile = new ArrayList<PersonDto.HealthProfile>();
         }
         return this.healthProfile;
     }
@@ -210,7 +210,7 @@ public class Person {
     public static class HealthProfile {
 
         @XmlElement(nillable = true)
-        protected List<Person.HealthProfile.MeasureType> measureType;
+        protected List<PersonDto.HealthProfile.MeasureType> measureType;
 
         /**
          * Gets the value of the measureType property.
@@ -230,13 +230,13 @@ public class Person {
          * 
          * <p>
          * Objects of the following type(s) are allowed in the list
-         * {@link Person.HealthProfile.MeasureType }
+         * {@link PersonDto.HealthProfile.MeasureType }
          * 
          * 
          */
-        public List<Person.HealthProfile.MeasureType> getMeasureType() {
+        public List<PersonDto.HealthProfile.MeasureType> getMeasureType() {
             if (measureType == null) {
-                measureType = new ArrayList<Person.HealthProfile.MeasureType>();
+                measureType = new ArrayList<PersonDto.HealthProfile.MeasureType>();
             }
             return this.measureType;
         }
