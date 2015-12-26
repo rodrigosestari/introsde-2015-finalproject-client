@@ -2,12 +2,16 @@ package userinterface;
 
 import java.net.URI;
 import java.net.URL;
+import java.util.List;
 import java.util.Scanner;
 
 import javax.ws.rs.core.UriBuilder;
 import javax.xml.namespace.QName;
 import javax.xml.ws.Service;
 
+import systemlogic.businesslogicservices.dto.goal.valutation.Goalview;
+import systemlogic.businesslogicservices.dto.goals.Goals;
+import systemlogic.processcentricservices.rest.client.GoalWS;
 import systemlogic.processcentricservices.soap.client.EndPoint;
 import systemlogic.processcentricservices.soap.sw.Health;
 import systemlogic.processcentricservices.soap.sw.MeasureHistoryView;
@@ -36,7 +40,7 @@ public class Client {
 			if (null == idPerson) {
 				System.out.println("1 - List id all People");
 				System.out.println("2 - Enter person");
-				System.out.println("3 - exit");
+				System.out.println("e - exit");
 				type = scanner();
 				switch (type) {
 
@@ -59,7 +63,7 @@ public class Client {
 
 				}
 					break;
-				case "3": {
+				case "e": {
 					input = "exit";
 				}
 					break;
@@ -71,7 +75,9 @@ public class Client {
 				System.out.println("1 - get measute types");
 				System.out.println("2 - get measute history");
 				System.out.println("3 - save measute");
-				System.out.println("4 - exit");
+				System.out.println("4 - get Goals");
+				System.out.println("5 - get goal valitation");
+				System.out.println("e - exit");
 				type = scanner();
 
 				switch (type) {
@@ -121,6 +127,36 @@ public class Client {
 				}
 					break;
 				case "4": {
+					try {
+						Goals glist = GoalWS.getGoals(idPerson);
+						 if (null != glist){
+							 for (Goals.Goal  goal : glist.getGoal()){
+								 System.out.println(goal.toString());
+							 }
+							 
+						 }
+					} catch (Exception e) {
+						System.out.print("error");
+					}
+					 
+				}
+					break;
+				case "5": {
+					try {
+						System.out.print("ID goAL: ");
+						String idgoal = scanner();
+						Goalview goal = GoalWS.getGoalValitation(Integer.parseInt(idgoal));
+						 if (null != goal){
+							 System.out.print(goal.toString());
+							 
+						 }
+					} catch (Exception e) {
+						System.out.print("error");
+					}
+					 
+				}
+					break;
+				case "e": {
 					input = "exit";
 				}
 					break;
