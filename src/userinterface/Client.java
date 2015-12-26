@@ -68,13 +68,15 @@ public class Client {
 					break;
 				}
 			} else {
-				System.out.println("1 - get measute history");
-				System.out.println("2 - get measute types");
-				System.out.println("3 - exit");
+				System.out.println("1 - get measute types");
+				System.out.println("2 - get measute history");
+				System.out.println("3 - save measute");
+				System.out.println("4 - exit");
 				type = scanner();
+
 				switch (type) {
 
-				case "1": {
+				case "2": {
 					System.out.print("measure: ");
 					String pmeasure = scanner();
 					try {
@@ -91,11 +93,34 @@ public class Client {
 
 				}
 					break;
-				case "2": {
+				case "1": {
 					System.out.println(EndPoint.measureType());
 				}
 					break;
 				case "3": {
+					boolean result = false;
+					try {
+						System.out.print("measure: ");
+						String pmeasure = scanner();
+
+						System.out.print("value: ");
+						String pvalue = scanner();
+
+						System.out.print("data: ");
+						String pdta = scanner();
+						result = EndPoint.saveMeasure(Long.valueOf(idPerson), pmeasure, Float.parseFloat(pvalue), pdta);
+					} catch (Exception e) {
+						result = false;
+					}
+
+					if (result) {
+						System.out.print("measure salved!");
+					} else {
+						System.out.print("error");
+					}
+				}
+					break;
+				case "4": {
 					input = "exit";
 				}
 					break;
