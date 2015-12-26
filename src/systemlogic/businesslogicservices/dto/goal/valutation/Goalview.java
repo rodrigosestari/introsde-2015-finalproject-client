@@ -14,6 +14,7 @@ import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
 import javax.xml.datatype.XMLGregorianCalendar;
@@ -97,10 +98,16 @@ import javax.xml.datatype.XMLGregorianCalendar;
     "goaltype",
     "goals"
 })
-//@XmlRootElement(name = "goalview")
+@XmlRootElement(name = "goalview")
 public class Goalview {
 
-    @XmlElement(required = true)
+    @Override
+	public String toString() {
+		return "Goalview [goaltype=" + goaltype + ", goals=" + goals + "]";
+	}
+
+
+	@XmlElement(required = true)
     protected Goalview.Goaltype goaltype;
     protected List<Goalview.Goals> goals;
 
@@ -189,7 +196,13 @@ public class Goalview {
     })
     public static class Goals {
 
-        protected float expectedValue;
+        @Override
+		public String toString() {
+			return "Goals [expectedValue=" + expectedValue + ", value=" + value + ", result=" + result + ", data="
+					+ data + "]";
+		}
+
+		protected float expectedValue;
         protected float value;
         @XmlElement(required = true)
         protected String result;
@@ -342,7 +355,15 @@ public class Goalview {
     })
     public static class Goaltype {
 
-        protected int idGoal;
+        @Override
+		public String toString() {
+			return "Goaltype [idGoal=" + idGoal + ", start=" + start + ", end=" + end + ", type=" + type + ", signal="
+					+ signal + ", value=" + value + ", measureDefinition=" + measureDefinition + ", person=" + person
+					+ "]";
+		}
+
+
+		protected int idGoal;
         @XmlElement(required = true)
         @XmlSchemaType(name = "date")
         protected XMLGregorianCalendar start;
@@ -563,7 +584,12 @@ public class Goalview {
         })
         public static class MeasureDefinition {
 
-            protected int idMeasureDef;
+            @Override
+			public String toString() {
+				return "MeasureDefinition [idMeasureDef=" + idMeasureDef + ", measureName=" + measureName + "]";
+			}
+
+			protected int idMeasureDef;
             @XmlElement(required = true)
             protected String measureName;
 
@@ -639,7 +665,12 @@ public class Goalview {
         })
         public static class Person {
 
-            protected int idPerson;
+            @Override
+			public String toString() {
+				return "Person [idPerson=" + idPerson + ", firstname=" + firstname + ", lastname=" + lastname + "]";
+			}
+
+			protected int idPerson;
             @XmlElement(required = true)
             protected String firstname;
             @XmlElement(required = true)

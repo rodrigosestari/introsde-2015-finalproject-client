@@ -14,6 +14,7 @@ import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
 import javax.xml.datatype.XMLGregorianCalendar;
@@ -82,7 +83,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
 @XmlType(name = "", propOrder = {
     "goal"
 })
-//@XmlRootElement(name = "goals")
+@XmlRootElement(name = "goals")
 public class Goals {
 
     protected List<Goals.Goal> goal;
@@ -179,7 +180,15 @@ public class Goals {
     })
     public static class Goal {
 
-        protected int idGoal;
+        @Override
+		public String toString() {
+			return "Goal [idGoal=" + idGoal + ", start=" + start + ", end=" + end + ", type=" + type + ", signal="
+					+ signal + ", value=" + value + ", measureDefinition=" + measureDefinition + ", person=" + person
+					+ "]";
+		}
+
+
+		protected int idGoal;
         @XmlElement(required = true)
         @XmlSchemaType(name = "date")
         protected XMLGregorianCalendar start;
@@ -400,7 +409,12 @@ public class Goals {
         })
         public static class MeasureDefinition {
 
-            protected int idMeasureDef;
+            @Override
+			public String toString() {
+				return "MeasureDefinition [idMeasureDef=" + idMeasureDef + ", measureName=" + measureName + "]";
+			}
+
+			protected int idMeasureDef;
             @XmlElement(required = true)
             protected String measureName;
 
@@ -476,7 +490,12 @@ public class Goals {
         })
         public static class Person {
 
-            protected int idPerson;
+            @Override
+			public String toString() {
+				return "Person [idPerson=" + idPerson + ", firstname=" + firstname + ", lastname=" + lastname + "]";
+			}
+
+			protected int idPerson;
             @XmlElement(required = true)
             protected String firstname;
             @XmlElement(required = true)
