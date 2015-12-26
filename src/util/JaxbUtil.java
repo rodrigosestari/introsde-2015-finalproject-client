@@ -4,6 +4,8 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.InputStream;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -149,6 +151,18 @@ public class JaxbUtil {
 			e.printStackTrace();
 		}
 		return null;
+	}
+	
+	public static Date stringToDate(String data) {
+		Date dataresult = new Date();
+		try {
+			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+			//SimpleDateFormat sdf =  new SimpleDateFormat("EEE MMM dd HH:mm:ss zzz yyyy");
+			dataresult = sdf.parse(data);
+		} catch (ParseException e) {			
+			e.printStackTrace();
+		}
+		return dataresult;
 	}
 
 }

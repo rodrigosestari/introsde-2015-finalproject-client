@@ -1,6 +1,7 @@
 package systemlogic.processcentricservices.rest.client;
 
 import java.io.File;
+import java.util.Date;
 
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
@@ -8,7 +9,7 @@ import javax.ws.rs.client.Entity;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import javax.xml.datatype.XMLGregorianCalendar;
+
 
 import org.glassfish.jersey.client.ClientConfig;
 
@@ -35,6 +36,8 @@ public class GoalWS {
 		return goals;
 
 	}
+	
+	
 
 	public static Goalview getGoalValitation(int idgoal) {
 
@@ -51,19 +54,25 @@ public class GoalWS {
 
 	}
 
-	public static boolean saveGoal(int idperson, int idmeasure, XMLGregorianCalendar start, XMLGregorianCalendar end,
-			String type, String signal, float value) {
+	public static boolean saveGoal(int idperson, String measure, String start, String end,
+			String type, String signal, String value) {
 
+		Date dstarr = JaxbUtil.stringToDate(start);
+		Date dend = JaxbUtil.stringToDate(end);
+		
 		Goal goal = new Goal();
-		goal.setEnd(end);
+		goal.setEnd(JaxbUtil.dateToXmlGregorianCalendar(dend));
+		goal.setStart(JaxbUtil.dateToXmlGregorianCalendar(dstarr));
 		goal.setSignal(signal);
 		goal.setType(type);
-		goal.setValue(value);
+		goal.setValue(Float.parseFloat(value));
+	
+		
 
 		File xsdFile = new File("resource/Goal.xsd");
 
 		String xml = JaxbUtil.jaxbToXml("systemlogic.businesslogicservices.dto.goal", goal, xsdFile);
-		WebTarget service = client.target(userinterface.Client.getUri()).path("goal/" + idperson + "/" + idmeasure);
+		WebTarget service = client.target(userinterface.Client.getUri()).path("goal/" + idperson + "/" + measure);
 
 		Response response = service.request(MediaType.APPLICATION_XML).accept(MediaType.APPLICATION_XML)
 				.post(Entity.xml(xml));

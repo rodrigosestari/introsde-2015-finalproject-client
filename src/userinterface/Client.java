@@ -2,7 +2,6 @@ package userinterface;
 
 import java.net.URI;
 import java.net.URL;
-import java.util.List;
 import java.util.Scanner;
 
 import javax.ws.rs.core.UriBuilder;
@@ -74,9 +73,10 @@ public class Client {
 			} else {
 				System.out.println("1 - get measute types");
 				System.out.println("2 - get measute history");
-				System.out.println("3 - save measute");
+				System.out.println("3 - savve measute");
 				System.out.println("4 - get Goals");
 				System.out.println("5 - get goal valitation");
+				System.out.println("6 - create goal");
 				System.out.println("e - exit");
 				type = scanner();
 
@@ -152,6 +152,34 @@ public class Client {
 						 }
 					} catch (Exception e) {
 						System.out.print("error");
+					}
+					 
+				}
+					break;
+				case "6": {
+					try {
+						System.out.print("measure: ");
+						String measure = scanner();
+						System.out.print("Start date: ");
+						String start = scanner();
+						System.out.print("end date: ");
+						String end = scanner();
+						System.out.print("type (DAILY, MONTHLY): ");
+						String type = scanner();
+						System.out.print("sginal (LESS, EQUAL, GRATER, LESS_EQUAL, GRATER_EQUAL): ");
+						String signal = scanner();
+						System.out.print("value: ");
+						String value = scanner();
+						
+						boolean result = GoalWS.saveGoal(idPerson, measure, start, end, type, signal, value);
+						 if (result){
+							 System.out.println("goal created");
+							 
+						 }else{
+							 System.out.println("error");
+						 }
+					} catch (Exception e) {
+						System.out.println("error");
 					}
 					 
 				}
