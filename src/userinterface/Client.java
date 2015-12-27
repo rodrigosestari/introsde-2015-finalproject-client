@@ -57,7 +57,6 @@ public class Client {
 						}
 					} catch (Exception e) {
 						idPerson = null;
-						input = "exit";
 					}
 
 				}
@@ -129,31 +128,31 @@ public class Client {
 				case "4": {
 					try {
 						Goals glist = GoalWS.getGoals(idPerson);
-						 if (null != glist){
-							 for (Goals.Goal  goal : glist.getGoal()){
-								 System.out.println(goal.toString());
-							 }
-							 
-						 }
+						if (null != glist) {
+							for (Goals.Goal goal : glist.getGoal()) {
+								System.out.println(goal.toString());
+							}
+
+						}
 					} catch (Exception e) {
 						System.out.print("error");
 					}
-					 
+
 				}
 					break;
 				case "5": {
 					try {
-						System.out.print("ID goAL: ");
+						System.out.print("ID goal: ");
 						String idgoal = scanner();
 						Goalview goal = GoalWS.getGoalValitation(Integer.parseInt(idgoal));
-						 if (null != goal){
-							 System.out.print(goal.toString());
-							 
-						 }
+						if (null != goal) {
+							System.out.print(goal.toString());
+
+						}
 					} catch (Exception e) {
 						System.out.print("error");
 					}
-					 
+
 				}
 					break;
 				case "6": {
@@ -166,22 +165,22 @@ public class Client {
 						String end = scanner();
 						System.out.print("type (DAILY, MONTHLY): ");
 						String type = scanner();
-						System.out.print("sginal (LESS, EQUAL, GRATER, LESS_EQUAL, GRATER_EQUAL): ");
+						System.out.print("signal (LESS, EQUAL, GRATER, LESS_EQUAL, GRATER_EQUAL): ");
 						String signal = scanner();
 						System.out.print("value: ");
 						String value = scanner();
-						
+
 						boolean result = GoalWS.saveGoal(idPerson, measure, start, end, type, signal, value);
-						 if (result){
-							 System.out.println("goal created");
-							 
-						 }else{
-							 System.out.println("error");
-						 }
+						if (result) {
+							System.out.println("goal created");
+
+						} else {
+							System.out.println("error");
+						}
 					} catch (Exception e) {
 						System.out.println("error");
 					}
-					 
+
 				}
 					break;
 				case "e": {
