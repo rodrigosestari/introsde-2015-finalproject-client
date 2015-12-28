@@ -165,7 +165,9 @@ public class Client {
 						String end = scanner();
 						System.out.print("type (DAILY, MONTHLY): ");
 						String type = scanner();
-						System.out.print("signal (LESS, EQUAL, GRATER, LESS_EQUAL, GRATER_EQUAL): ");
+						System.out.println("signal (LESS, EQUAL, GRATER, LESS_EQUAL, GRATER_EQUAL): ");
+						System.out.print("signal (LESS_SUM, EQUAL_SUM, GRATER_SUM, LESS_EQUAL_SUM, GRATER_EQUAL_SUM): ");
+						
 						String signal = scanner();
 						System.out.print("value: ");
 						String value = scanner();
