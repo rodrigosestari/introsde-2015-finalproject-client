@@ -10,6 +10,7 @@ import javax.xml.ws.Service;
 
 import systemlogic.businesslogicservices.dto.goal.valutation.Goalview;
 import systemlogic.businesslogicservices.dto.goals.Goals;
+import systemlogic.processcentricservices.rest.client.AdapterWS;
 import systemlogic.processcentricservices.rest.client.GoalWS;
 import systemlogic.processcentricservices.soap.client.EndPoint;
 import systemlogic.processcentricservices.soap.sw.Health;
@@ -23,6 +24,7 @@ public class Client {
 	static Service service = null;
 	static Health health = null;
 	static URI uri = null;
+	static URI uriAdapter = null;
 	static String type = "";
 	static Integer idPerson = null;
 
@@ -32,6 +34,7 @@ public class Client {
 		setService(Service.create(url, qname));
 		setHealth(getService().getPort(Health.class));
 		setUri(UriBuilder.fromUri("http://rodrigo-sestari-final-rest.herokuapp.com/finalprojectrest/").build());
+		setUriAdapter(UriBuilder.fromUri("http://rodrigo-sestari-final-api.herokuapp.com/adapter/").build());
 
 		System.out.println("Rodrigo Joni Sestari");
 		String input = "";
@@ -76,6 +79,7 @@ public class Client {
 				System.out.println("4 - get Goals");
 				System.out.println("5 - get goal valitation");
 				System.out.println("6 - create goal");
+				System.out.println("7 - connect Adapter");
 				System.out.println("e - exit");
 				type = scanner();
 
@@ -185,6 +189,25 @@ public class Client {
 
 				}
 					break;
+					
+				case "7": {
+					try {
+						System.out.print("insert your token: ");
+						String token = scanner();
+						
+						boolean result = AdapterWS.importMeasure(idPerson, token);
+						if (result) {
+							System.out.println("measure imported");
+
+						} else {
+							System.out.println("error");
+						}
+					} catch (Exception e) {
+						System.out.println("error");
+					}
+
+				}
+					break;
 				case "e": {
 					input = "exit";
 				}
@@ -244,5 +267,14 @@ public class Client {
 	public static void setUri(URI uri) {
 		Client.uri = uri;
 	}
+
+	public static URI getUriAdapter() {
+		return uriAdapter;
+	}
+
+	public static void setUriAdapter(URI uriAdapter) {
+		Client.uriAdapter = uriAdapter;
+	}
+
 
 }
