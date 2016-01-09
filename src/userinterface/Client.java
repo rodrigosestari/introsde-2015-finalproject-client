@@ -49,7 +49,7 @@ public class Client {
 				case "1": {
 					System.out.println(EndPoint.idPeople());
 				}
-					break;
+				break;
 				case "2": {
 					System.out.print("Person id: ");
 					type = scanner();
@@ -63,11 +63,11 @@ public class Client {
 					}
 
 				}
-					break;
+				break;
 				case "e": {
 					input = "exit";
 				}
-					break;
+				break;
 				default:
 					input = "exit";
 					break;
@@ -101,11 +101,11 @@ public class Client {
 					}
 
 				}
-					break;
+				break;
 				case "1": {
 					System.out.println(EndPoint.measureType());
 				}
-					break;
+				break;
 				case "3": {
 					boolean result = false;
 					try {
@@ -128,7 +128,7 @@ public class Client {
 						System.out.print("error");
 					}
 				}
-					break;
+				break;
 				case "4": {
 					try {
 						Goals glist = GoalWS.getGoals(idPerson);
@@ -143,7 +143,7 @@ public class Client {
 					}
 
 				}
-					break;
+				break;
 				case "5": {
 					try {
 						System.out.print("ID goal: ");
@@ -158,7 +158,7 @@ public class Client {
 					}
 
 				}
-					break;
+				break;
 				case "6": {
 					try {
 						System.out.print("measure: ");
@@ -171,7 +171,7 @@ public class Client {
 						String type = scanner();
 						System.out.println("signal (LESS, EQUAL, GRATER, LESS_EQUAL, GRATER_EQUAL): ");
 						System.out.print("signal (LESS_SUM, EQUAL_SUM, GRATER_SUM, LESS_EQUAL_SUM, GRATER_EQUAL_SUM): ");
-						
+
 						String signal = scanner();
 						System.out.print("value: ");
 						String value = scanner();
@@ -188,30 +188,44 @@ public class Client {
 					}
 
 				}
-					break;
-					
+				break;
+
 				case "7": {
 					try {
 						System.out.print("insert your token: ");
 						String token = scanner();
+						System.out.print("import: Weight(w) BloodPressure(b)");
+						String tipo = scanner().toLowerCase();						
+						boolean result = false;
+						switch (tipo) {
+						case "w":
+							result = AdapterWS.importMeasure(idPerson, token,"Weight");
+							break;
+							
+						case "b":
+							result = AdapterWS.importMeasure(idPerson, token,"BloodPressure");
+							break;
+							
+						default:
+							break;
+						}
 						
-						boolean result = AdapterWS.importMeasure(idPerson, token);
 						if (result) {
 							System.out.println("measure imported");
-
 						} else {
 							System.out.println("error");
 						}
+
 					} catch (Exception e) {
 						System.out.println("error");
 					}
 
 				}
-					break;
+				break;
 				case "e": {
 					input = "exit";
 				}
-					break;
+				break;
 				default:
 					input = "exit";
 					break;

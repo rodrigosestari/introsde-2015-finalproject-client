@@ -13,11 +13,13 @@ public class AdapterWS {
 	static ClientConfig clientConfig = new ClientConfig();
 	static Client client = ClientBuilder.newClient(clientConfig);
 
-	public static boolean importMeasure(int idperson, String token) {
+	public static boolean importMeasure(int idperson, String token, String type) {
 
+		//Weight
+		//BloodPressure
 		boolean result = false;
 		try {
-			WebTarget service = client.target(userinterface.Client.getUriAdapter()).path("BloodPressure/" + idperson + "/" + token);
+			WebTarget service = client.target(userinterface.Client.getUriAdapter()).path(type+"/" + idperson + "/" + token);
 			Response response = service.request(MediaType.APPLICATION_XML).accept(MediaType.APPLICATION_XML).get();
 			String xml = response.readEntity(String.class);
 			int httpStatus = response.getStatus();
