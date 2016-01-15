@@ -73,9 +73,9 @@ public class Client {
 					break;
 				}
 			} else {
-				System.out.println("1 - get measute types");
-				System.out.println("2 - get measute history");
-				System.out.println("3 - savve measute");
+				System.out.println("1 - get measure types");
+				System.out.println("2 - get measure history");
+				System.out.println("3 - save measure");
 				System.out.println("4 - get Goals");
 				System.out.println("5 - get goal valitation");
 				System.out.println("6 - create goal");

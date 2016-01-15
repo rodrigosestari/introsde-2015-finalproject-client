@@ -183,7 +183,7 @@ public class Goals {
         @Override
 		public String toString() {
 			return "Goal [idGoal=" + idGoal + ", start=" + start + ", end=" + end + ", type=" + type + ", signal="
-					+ signal + ", value=" + value + ", measureDefinition=" + measureDefinition + ", person=" + person
+					+ signal + ", value=" + value + ", \n measureDefinition=" + measureDefinition + ", \n person=" + person
 					+ "]";
 		}
 
@@ -411,7 +411,7 @@ public class Goals {
 
             @Override
 			public String toString() {
-				return "MeasureDefinition [idMeasureDef=" + idMeasureDef + ", measureName=" + measureName + "]";
+				return " MeasureDefinition [idMeasureDef=" + idMeasureDef + ", measureName=" + measureName + "]";
 			}
 
 			protected int idMeasureDef;

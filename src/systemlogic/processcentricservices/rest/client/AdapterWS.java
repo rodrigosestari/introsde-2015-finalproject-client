@@ -23,7 +23,7 @@ public class AdapterWS {
 			Response response = service.request(MediaType.APPLICATION_XML).accept(MediaType.APPLICATION_XML).get();
 			String xml = response.readEntity(String.class);
 			int httpStatus = response.getStatus();
-			xml = response.readEntity(String.class);
+
 
 			if (httpStatus == 200)
 				result = true;

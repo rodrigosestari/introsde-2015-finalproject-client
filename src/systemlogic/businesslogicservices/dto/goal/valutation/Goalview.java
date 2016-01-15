@@ -103,7 +103,7 @@ public class Goalview {
 
     @Override
 	public String toString() {
-		return "Goalview [goaltype=" + goaltype + ", goals=" + goals + "]";
+		return "Goalview [ goaltype=" + goaltype + ", \n goals=" + goals + "]";
 	}
 
 
@@ -198,7 +198,7 @@ public class Goalview {
 
         @Override
 		public String toString() {
-			return "Goals [expectedValue=" + expectedValue + ", value=" + value + ", result=" + result + ", data="
+			return " \n Goals [expectedValue=" + expectedValue + ", value=" + value + ", result=" + result + ", data="
 					+ data + "]";
 		}
 
@@ -357,7 +357,7 @@ public class Goalview {
 
         @Override
 		public String toString() {
-			return "Goaltype [idGoal=" + idGoal + ", start=" + start + ", end=" + end + ", type=" + type + ", signal="
+			return " \n Goaltype [idGoal=" + idGoal + ", start=" + start + ", end=" + end + ", type=" + type + ", signal="
 					+ signal + ", value=" + value + ", measureDefinition=" + measureDefinition + ", person=" + person
 					+ "]";
 		}
