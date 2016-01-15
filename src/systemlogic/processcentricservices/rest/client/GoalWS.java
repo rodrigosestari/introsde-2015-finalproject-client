@@ -85,16 +85,11 @@ public class GoalWS {
 
 		Response response = service.request(MediaType.APPLICATION_XML).accept(MediaType.APPLICATION_XML)
 				.post(Entity.xml(xml));
-		xml = response.readEntity(String.class);
-		try {
-			goal = (Goal) JaxbUtil.xmlToJaxb("systemlogic.businesslogicservices.dto.goal", xml, xsdFile);
-		} catch (Exception e) {
-			goal =null;
-		}
+		int httpStatus = response.getStatus();
 
-		if (null != goal) {
-			return true;
-		}
+		if (httpStatus == 201)
+			return  true;
+
 
 		return false;
 	}

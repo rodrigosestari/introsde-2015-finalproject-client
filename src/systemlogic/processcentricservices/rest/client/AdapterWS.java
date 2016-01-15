@@ -20,8 +20,7 @@ public class AdapterWS {
 		boolean result = false;
 		try {
 			WebTarget service = client.target(userinterface.Client.getUriAdapter()).path(type+"/" + idperson + "/" + token);
-			Response response = service.request(MediaType.APPLICATION_XML).accept(MediaType.APPLICATION_XML).get();
-			String xml = response.readEntity(String.class);
+			Response response = service.request(MediaType.APPLICATION_XML).accept(MediaType.APPLICATION_XML).get();			
 			int httpStatus = response.getStatus();
 
 
