@@ -87,7 +87,7 @@ public class Client {
 
 				case "2": {
 					System.out.print("measure: ");
-					String pmeasure = scanner();
+					String pmeasure = scanner().toLowerCase();
 					try {
 						MeasureHistoryView mv = EndPoint.personHistory(Long.valueOf(idPerson), pmeasure);
 						if (null != mv) {
@@ -110,7 +110,7 @@ public class Client {
 					boolean result = false;
 					try {
 						System.out.print("measure: ");
-						String pmeasure = scanner();
+						String pmeasure = scanner().toLowerCase();
 
 						System.out.print("value: ");
 						String pvalue = scanner();
@@ -123,9 +123,9 @@ public class Client {
 					}
 
 					if (result) {
-						System.out.print("measure salved!");
+						System.out.println("measure salved!");
 					} else {
-						System.out.print("error");
+						System.out.println("error");
 					}
 				}
 				break;
@@ -138,10 +138,10 @@ public class Client {
 							}
 
 						}else{
-							System.out.print("don't exist");
+							System.out.println("don't exist");
 						}
 					} catch (Exception e) {
-						System.out.print("error");
+						System.out.println("error");
 					}
 
 				}
@@ -155,10 +155,10 @@ public class Client {
 							System.out.print(goal.toString());
 
 						}else{
-							System.out.print("don't exist");
+							System.out.println("don't exist");
 						}
 					} catch (Exception e) {
-						System.out.print("error");
+						System.out.println("error");
 					}
 
 				}
@@ -166,7 +166,7 @@ public class Client {
 				case "6": {
 					try {
 						System.out.print("measure: ");
-						String measure = scanner();
+						String measure = scanner().toLowerCase();
 						System.out.print("Start date: ");
 						String start = scanner();
 						System.out.print("end date: ");
@@ -198,7 +198,7 @@ public class Client {
 					try {
 						System.out.print("insert your token: ");
 						String token = scanner();
-						System.out.print("import: Weight(w) BloodPressure(b)");
+						System.out.print("import: Weight(w)  Blood Pressure(b)");
 						String tipo = scanner().toLowerCase();						
 						boolean result = false;
 						switch (tipo) {
