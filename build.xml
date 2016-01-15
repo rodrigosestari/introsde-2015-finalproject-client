@@ -15,7 +15,7 @@
        # The target "download-ivy" and "install-ivy" will download the ivy jar and place it in the "ivy" folder
        # 
 -->
-    <project name="FinalProjectClient" default="install" basedir="." xmlns:ivy="antlib:org.apache.ivy.ant">
+    <project name="FinalProjectClientAPI" default="install" basedir="." xmlns:ivy="antlib:org.apache.ivy.ant">
         <!-- PART 1: Ivy properties, download, installation and configuration -->
         <property name="ivy.install.version" value="2.4.0-rc1" />
         <property name="ivy.jar.dir" value="${basedir}/ivy" />
@@ -103,6 +103,29 @@
                 </fileset>
             </copy>
         </target>
-
+        <target name="start">
+            <echo message="app start systemlogic.processcentricservices.api.publisher.ApiPublisher in ${build.dir}" />
+            <java classname="systemlogic.processcentricservices.api.publisher.ApiPublisher" classpath="${build.dir}" fork="true">
+                <arg value="$JAVA_OPTS  -cp" />
+                <classpath>
+                    <path location="build" />
+                    <fileset dir="WebContent/WEB-INF/lib">
+                        <include name="**/*.jar" />
+                        <include name="*.jar" />
+                    </fileset>
+                </classpath>
+            </java>
+        </target>
+        
+       
+        <!-- make sure you have created first the WebContent folder, including a META-INF folder, WEB-INF/web.xml file and WEB-INF/lib folder -->
+        <target name="create.war" depends="install">
+            <war destfile="finalAPI.war" webxml="${web.dir}/WebContent/WEB-INF/web.xml">
+                <fileset dir="${web.dir}/WebContent">
+                    <include name="**/*.*" />
+                </fileset>
+                <classes dir="${build.dir}" />
+            </war>
+        </target>
       
     </project>
