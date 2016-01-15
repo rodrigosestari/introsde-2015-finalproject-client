@@ -38,6 +38,7 @@ public class JaxbUtil {
 	 * @return
 	 * a object type packageXml
 	 */
+
 	public static Object xmlToJaxb(String packageXml, String xml, File fileXsd) {
 		Object obj = null;
 		try {
@@ -56,6 +57,7 @@ public class JaxbUtil {
 			obj = unmarshaller.unmarshal(is);
 
 		} catch (Exception e) {			
+			e.printStackTrace();
 		}
 		return obj;
 	}

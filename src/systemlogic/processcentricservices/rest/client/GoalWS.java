@@ -23,7 +23,7 @@ public class GoalWS {
 	static ClientConfig clientConfig = new ClientConfig();
 	static Client client = ClientBuilder.newClient(clientConfig);
 
-	public static Goals getGoals(int idperson) {
+	public static Goals getGoals(Long idperson) {
 		Goals goals = null;
 		WebTarget service = client.target(userinterface.Client.getUri()).path("goal/" + idperson);
 		Response response = service.request(MediaType.APPLICATION_XML).accept(MediaType.APPLICATION_XML).get();
@@ -44,7 +44,7 @@ public class GoalWS {
 
 
 
-	public static Goalview getGoalValitation(int idgoal) {
+	public static Goalview getGoalValitation(Long idgoal) {
 		Goalview goals = null;
 		WebTarget service = client.target(userinterface.Client.getUri()).path("goalValuation/" + idgoal);
 		Response response = service.request(MediaType.APPLICATION_XML).accept(MediaType.APPLICATION_XML).get();
@@ -63,7 +63,7 @@ public class GoalWS {
 
 	}
 
-	public static boolean saveGoal(int idperson, String measure, String start, String end,
+	public static boolean saveGoal(Long idperson, String measure, String start, String end,
 			String type, String signal, String value) {
 
 		Date dstarr = JaxbUtil.stringToDate(start);

@@ -1,4 +1,4 @@
-package systemlogic.processcentricservices.soap.client;
+package systemlogic.processcentricservices.endpoint.client;
 
 import java.util.ArrayList;
 
