@@ -28,14 +28,14 @@ public class ApiPublisher {
         }
          
         //soap entry point
-        userinterface.Client.setUrl(new URL("http://rodrigo-sestari-final-soap.herokuapp.com/ws/health?wsdl"));
-        userinterface.Client.setQname(new QName("http://sw.soap.processcentricservices.systemlogic/", "HealthService"));		                    
-        userinterface.Client.setService(Service.create(userinterface.Client.getUrl(), userinterface.Client.getQname()));
-        userinterface.Client.setHealth(userinterface.Client.getService().getPort(Health.class));
+        systemlogic.processcentricservices.interfaces.Client.setUrl(new URL("http://rodrigo-sestari-final-soap.herokuapp.com/ws/health?wsdl"));
+        systemlogic.processcentricservices.interfaces.Client.setQname(new QName("http://sw.soap.processcentricservices.systemlogic/", "HealthService"));		                    
+        systemlogic.processcentricservices.interfaces.Client.setService(Service.create(systemlogic.processcentricservices.interfaces.Client.getUrl(), systemlogic.processcentricservices.interfaces.Client.getQname()));
+        systemlogic.processcentricservices.interfaces.Client.setHealth(systemlogic.processcentricservices.interfaces.Client.getService().getPort(Health.class));
         //rest project base
-        userinterface.Client.setUri(UriBuilder.fromUri("http://rodrigo-sestari-final-rest.herokuapp.com/finalprojectrest/").build());
+        systemlogic.processcentricservices.interfaces.Client.setUri(UriBuilder.fromUri("http://rodrigo-sestari-final-rest.herokuapp.com/finalprojectrest/").build());
         //rest adapter
-        userinterface.Client.setUriAdapter(UriBuilder.fromUri("http://rodrigo-sestari-final-api.herokuapp.com/adapter/").build());
+        systemlogic.processcentricservices.interfaces.Client.setUriAdapter(UriBuilder.fromUri("http://rodrigo-sestari-final-api.herokuapp.com/adapter/").build());
 		
         String endpointUrl = PROTOCOL+HOSTNAME+":"+PORT+BASE_URL;
         System.out.println("Starting API Service...");

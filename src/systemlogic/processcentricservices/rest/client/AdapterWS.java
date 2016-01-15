@@ -19,7 +19,7 @@ public class AdapterWS {
 		//BloodPressure
 		boolean result = false;
 		try {
-			WebTarget service = client.target(userinterface.Client.getUriAdapter()).path(type+"/" + idperson + "/" + token);
+			WebTarget service = client.target(systemlogic.processcentricservices.interfaces.Client.getUriAdapter()).path(type+"/" + idperson + "/" + token);
 			Response response = service.request(MediaType.APPLICATION_XML).accept(MediaType.APPLICATION_XML).get();			
 			int httpStatus = response.getStatus();
 			if (httpStatus == 200)

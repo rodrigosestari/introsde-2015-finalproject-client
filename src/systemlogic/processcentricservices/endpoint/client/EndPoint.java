@@ -2,11 +2,11 @@ package systemlogic.processcentricservices.endpoint.client;
 
 import java.util.ArrayList;
 
+import systemlogic.processcentricservices.interfaces.Client;
 import systemlogic.processcentricservices.soap.sw.MeasureHistoryView;
 import systemlogic.processcentricservices.soap.sw.MeasureTypesView;
 import systemlogic.processcentricservices.soap.sw.PeopleView;
 import systemlogic.processcentricservices.soap.sw.PersonDto;
-import userinterface.Client;
 
 public class EndPoint {
 

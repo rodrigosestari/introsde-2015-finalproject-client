@@ -1,9 +1,8 @@
-package userinterface;
+package systemlogic.processcentricservices.interfaces;
 
 import java.net.URI;
 import java.net.URL;
 
-import javax.ws.rs.core.UriBuilder;
 import javax.xml.namespace.QName;
 import javax.xml.ws.Service;
 

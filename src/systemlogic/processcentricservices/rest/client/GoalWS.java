@@ -25,7 +25,7 @@ public class GoalWS {
 
 	public static Goals getGoals(Long idperson) {
 		Goals goals = null;
-		WebTarget service = client.target(userinterface.Client.getUri()).path("goal/" + idperson);
+		WebTarget service = client.target(systemlogic.processcentricservices.interfaces.Client.getUri()).path("goal/" + idperson);
 		Response response = service.request(MediaType.APPLICATION_XML).accept(MediaType.APPLICATION_XML).get();
 		String xml = response.readEntity(String.class);
 
@@ -46,7 +46,7 @@ public class GoalWS {
 
 	public static Goalview getGoalValitation(Long idgoal) {
 		Goalview goals = null;
-		WebTarget service = client.target(userinterface.Client.getUri()).path("goalValuation/" + idgoal);
+		WebTarget service = client.target(systemlogic.processcentricservices.interfaces.Client.getUri()).path("goalValuation/" + idgoal);
 		Response response = service.request(MediaType.APPLICATION_XML).accept(MediaType.APPLICATION_XML).get();
 		String xml = response.readEntity(String.class);
 
@@ -81,7 +81,7 @@ public class GoalWS {
 		File xsdFile = new File("resource/Goal.xsd");
 
 		String xml = JaxbUtil.jaxbToXml("systemlogic.businesslogicservices.dto.goal", goal, xsdFile);
-		WebTarget service = client.target(userinterface.Client.getUri()).path("goal/" + idperson + "/" + measure);
+		WebTarget service = client.target(systemlogic.processcentricservices.interfaces.Client.getUri()).path("goal/" + idperson + "/" + measure);
 
 		Response response = service.request(MediaType.APPLICATION_XML).accept(MediaType.APPLICATION_XML)
 				.post(Entity.xml(xml));

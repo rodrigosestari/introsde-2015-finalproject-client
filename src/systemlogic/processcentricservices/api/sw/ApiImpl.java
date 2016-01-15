@@ -7,11 +7,11 @@ import javax.jws.WebService;
 import systemlogic.businesslogicservices.dto.goal.valutation.Goalview;
 import systemlogic.businesslogicservices.dto.goals.Goals;
 import systemlogic.processcentricservices.endpoint.client.EndPoint;
+import systemlogic.processcentricservices.interfaces.Client;
 import systemlogic.processcentricservices.rest.client.AdapterWS;
 import systemlogic.processcentricservices.rest.client.GoalWS;
 import systemlogic.processcentricservices.soap.sw.MeasureHistoryView;
 import systemlogic.processcentricservices.soap.sw.PersonDto;
-import userinterface.Client;
 
 //Service Implementation
 
