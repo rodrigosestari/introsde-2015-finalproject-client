@@ -137,6 +137,8 @@ public class Client {
 								System.out.println(goal.toString());
 							}
 
+						}else{
+							System.out.print("don't exist");
 						}
 					} catch (Exception e) {
 						System.out.print("error");
@@ -152,6 +154,8 @@ public class Client {
 						if (null != goal) {
 							System.out.print(goal.toString());
 
+						}else{
+							System.out.print("don't exist");
 						}
 					} catch (Exception e) {
 						System.out.print("error");
@@ -169,8 +173,8 @@ public class Client {
 						String end = scanner();
 						System.out.print("type (DAILY, MONTHLY): ");
 						String type = scanner();
-						System.out.println("signal (LESS, EQUAL, GRATER, LESS_EQUAL, GRATER_EQUAL): ");
-						System.out.print("signal (LESS_SUM, EQUAL_SUM, GRATER_SUM, LESS_EQUAL_SUM, GRATER_EQUAL_SUM): ");
+						System.out.println("signal (LESS, EQUAL, GRATER, LESS_EQUAL, GRATER_EQUAL,  ");
+						System.out.print("LESS_SUM, EQUAL_SUM, GRATER_SUM, LESS_EQUAL_SUM, GRATER_EQUAL_SUM): ");
 
 						String signal = scanner();
 						System.out.print("value: ");

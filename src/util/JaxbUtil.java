@@ -55,8 +55,7 @@ public class JaxbUtil {
 
 			obj = unmarshaller.unmarshal(is);
 
-		} catch (Exception e) {
-			e.printStackTrace();
+		} catch (Exception e) {			
 		}
 		return obj;
 	}
@@ -94,7 +93,6 @@ public class JaxbUtil {
 			ret = baos.toString();
 
 		} catch (Exception e) {
-			e.printStackTrace();
 		}
 		return ret;
 	}
@@ -126,8 +124,7 @@ public class JaxbUtil {
 			c = DatatypeFactory.newInstance().newXMLGregorianCalendar(calendar);
 			c.setTimezone(0);
 
-		} catch (Exception e) {
-			e.printStackTrace();
+		} catch (Exception e) {			
 		}
 		return c;
 	}
@@ -148,7 +145,6 @@ public class JaxbUtil {
 			Calendar c = xmlCalendar.toGregorianCalendar();
 			return c.getTime();
 		} catch (Exception e) {
-			e.printStackTrace();
 		}
 		return null;
 	}
@@ -159,8 +155,7 @@ public class JaxbUtil {
 			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 			//SimpleDateFormat sdf =  new SimpleDateFormat("EEE MMM dd HH:mm:ss zzz yyyy");
 			dataresult = sdf.parse(data);
-		} catch (ParseException e) {			
-			e.printStackTrace();
+		} catch (ParseException e) {					
 		}
 		return dataresult;
 	}
