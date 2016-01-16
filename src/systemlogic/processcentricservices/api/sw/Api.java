@@ -28,7 +28,7 @@ public interface Api {
 	 * @return
 	 */
     @WebMethod(operationName="readPerson")
-    @WebResult(name="person") 
+    @WebResult(name="PersonDto") 
     public PersonDto readPerson(@WebParam(name="personId") Long id);
 
     /**
@@ -37,7 +37,7 @@ public interface Api {
      * @return
      */
     @WebMethod(operationName="readPersonList")
-    @WebResult(name="people") 
+    @WebResult(name="person") 
     public ArrayList<Integer> getPeople();
 
     
@@ -70,7 +70,7 @@ public interface Api {
  * @return
  */
     @WebMethod(operationName="readPersonHistory")
-    @WebResult(name="MeasureProfile") 
+    @WebResult(name="MeasureHistoryView") 
     public MeasureHistoryView readPersonHistory(@WebParam(name="personId") Long id, @WebParam(name="type") String measureType);
 
     
@@ -82,7 +82,7 @@ public interface Api {
      * @return
      */
     @WebMethod(operationName="readMeasureTypes")
-    @WebResult(name="MeasureProfile") 
+    @WebResult(name="measure") 
     public  ArrayList<String> readMeasureTypes();
 
     
