@@ -21,7 +21,7 @@ public class ApiImpl implements Api {
 	@Override
 	public PersonDto readPerson(Long id) {
 		
-		return Client.getHealth().readPerson(id);
+		return EndPoint.peopleExist(id);
 	}
 
 	@Override
