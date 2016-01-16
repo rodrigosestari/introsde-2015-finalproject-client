@@ -49,7 +49,7 @@ public interface Api {
 	 */
 	@WebMethod(operationName="createPerson")
 	@WebResult(name="personId") 
-	public Long addPerson(@WebParam(name="person") PersonDto person);
+	public Long addPerson(@WebParam(name="PersonDto") PersonDto person);
 
 
 
