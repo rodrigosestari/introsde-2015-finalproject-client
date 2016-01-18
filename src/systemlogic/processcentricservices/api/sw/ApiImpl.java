@@ -85,7 +85,7 @@ public class ApiImpl implements Api {
 	public boolean saveGoal(Long idperson, String measure, String start, String end, String type, String signal,
 			String value) {
 		
-		return GoalWS.saveGoal(idperson, value, start, end, type, signal, value);
+		return GoalWS.saveGoal(idperson, measure, start, end, type, signal, value);
 	}
 
 
